@@ -53,8 +53,6 @@ class AdminSignin(object):
         self.pushButton.setGeometry(QtCore.QRect(164, 260, 151, 41))
         self.pushButton.setStyleSheet("background-color: rgb(255, 255, 255);\n"
                                       "font: 75 16pt \"Times New Roman\";\n")
-        # self.pushButton.setStyleSheet("font: 75 12pt \"Times New Roman\";\n"
-        # "background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 178, 102, 255), stop:0.55 rgba(235, 148, 61, 255), stop:0.98 rgba(0, 0, 0, 255), stop:1 rgba(0, 0, 0, 0));")
         self.pushButton.setObjectName("pushButton")
         self.pushButton.clicked.connect(self.adminSignin)
 

@@ -9,7 +9,6 @@ from UserRegister import UserRegister
 
 class UserLogin(object):
     def userLogin(self):
-
         uname = self.lineEdit.text()
         passwd = self.lineEdit_1.text()
         database = DBConnection.getConnection()
@@ -25,13 +24,23 @@ class UserLogin(object):
             self.ui = Ui_Predict()
             self.ui.setupUi(self.user)
             self.user.show()
+        else:
+            self.showMessageBox("Information", "Incorrect username or password")
+
+    def showMessageBox(self, title, message):
+            msgBox = QtWidgets.QMessageBox()
+            msgBox.setIcon(QtWidgets.QMessageBox.Information)
+            msgBox.setWindowTitle(title)
+            msgBox.setText(message)
+            msgBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
+            msgBox.exec_()
+
     def userRegister(self):
         print("Reg")
         self.userreg = QtWidgets.QDialog()
         self.ui = UserRegister()
         self.ui.setupUi(self.userreg)
         self.userreg.show()
-
 
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
@@ -57,21 +66,18 @@ class UserLogin(object):
         self.lineEdit_1.setGeometry(QtCore.QRect(110, 210, 251, 31))
         self.lineEdit_1.setText("")
         self.lineEdit_1.setObjectName("lineEdit_1")
-        self.pushButton_2 = QtWidgets.QPushButton(Dialog)
-        self.pushButton_2.setGeometry(QtCore.QRect(190, 260, 75, 23))
-        self.pushButton_2.setStyleSheet("background-color: rgb(85, 85, 0);\n"
-"color: rgb(255, 255, 255);\n"
-"font: 75 12pt \"Times New Roman\";")
-        self.pushButton_2.setObjectName("pushButton_2")
-        self.pushButton_2.clicked.connect(self.userLogin)
-        self.register = QtWidgets.QPushButton(Dialog)
-        self.register.setGeometry(QtCore.QRect(190, 290, 75, 23))
-        self.register.setStyleSheet("background-color: rgb(85, 85, 0);\n"
-                                  "color: rgb(255, 255, 255);\n"
-                                  "font: 75 12pt \"Times New Roman\";")
-        self.register.setObjectName("register")
-        self.register.clicked.connect(self.userRegister)
-
+        self.loginBtn = QtWidgets.QPushButton(Dialog)
+        self.loginBtn.setGeometry(QtCore.QRect(164, 260, 151, 41))
+        self.loginBtn.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+                                      "font: 75 16pt \"Times New Roman\";\n")
+        self.loginBtn.setObjectName("loginBtn")
+        self.loginBtn.clicked.connect(self.userLogin)
+        self.registerBtn = QtWidgets.QPushButton(Dialog)
+        self.registerBtn.setGeometry(QtCore.QRect(164, 300, 151, 41))
+        self.registerBtn.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+                                    "font: 75 16pt \"Times New Roman\";\n")
+        self.registerBtn.setObjectName("registerBtn")
+        self.registerBtn.clicked.connect(self.userRegister)
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -82,8 +88,8 @@ class UserLogin(object):
         self.label.setText(_translate("Dialog", "User Login"))
         self.label_2.setText(_translate("Dialog", "Username"))
         self.label_3.setText(_translate("Dialog", "Password"))
-        self.pushButton_2.setText(_translate("Dialog", "Login"))
-        self.register.setText(_translate("Dialog", "Register"))
+        self.loginBtn.setText(_translate("Dialog", "Login"))
+        self.registerBtn.setText(_translate("Dialog", "Register"))
 
 if __name__ == "__main__":
     import sys
