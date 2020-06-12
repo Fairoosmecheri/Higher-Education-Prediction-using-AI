@@ -25,7 +25,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.Predict">
     <configuration name="AdminSignin" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Prediction" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -162,8 +162,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.UploadDataSet" />
         <item itemvalue="Python.Predict" />
+        <item itemvalue="Python.UploadDataSet" />
         <item itemvalue="Python.UserRegister" />
         <item itemvalue="Python.UserLogin" />
         <item itemvalue="Python.AdminSignin" />
@@ -198,26 +198,26 @@
       <screen x="0" y="23" width="1440" height="826" />
     </state>
     <state x="508" y="199" key="FileChooserDialogImpl/0.23.1440.826@0.23.1440.826" timestamp="1586713119566" />
-    <state width="1419" height="213" key="GridCell.Tab.0.bottom" timestamp="1591961930830">
+    <state width="1419" height="213" key="GridCell.Tab.0.bottom" timestamp="1591965464124">
       <screen x="0" y="23" width="1440" height="828" />
     </state>
     <state width="1419" height="192" key="GridCell.Tab.0.bottom/0.23.1440.826@0.23.1440.826" timestamp="1587282499044" />
-    <state width="1419" height="213" key="GridCell.Tab.0.bottom/0.23.1440.828@0.23.1440.828" timestamp="1591961930830" />
-    <state width="1419" height="213" key="GridCell.Tab.0.center" timestamp="1591961930829">
+    <state width="1419" height="213" key="GridCell.Tab.0.bottom/0.23.1440.828@0.23.1440.828" timestamp="1591965464124" />
+    <state width="1419" height="213" key="GridCell.Tab.0.center" timestamp="1591965464123">
       <screen x="0" y="23" width="1440" height="828" />
     </state>
     <state width="1419" height="192" key="GridCell.Tab.0.center/0.23.1440.826@0.23.1440.826" timestamp="1587282499043" />
-    <state width="1419" height="213" key="GridCell.Tab.0.center/0.23.1440.828@0.23.1440.828" timestamp="1591961930829" />
-    <state width="1419" height="213" key="GridCell.Tab.0.left" timestamp="1591961930828">
+    <state width="1419" height="213" key="GridCell.Tab.0.center/0.23.1440.828@0.23.1440.828" timestamp="1591965464123" />
+    <state width="1419" height="213" key="GridCell.Tab.0.left" timestamp="1591965464123">
       <screen x="0" y="23" width="1440" height="828" />
     </state>
     <state width="1419" height="192" key="GridCell.Tab.0.left/0.23.1440.826@0.23.1440.826" timestamp="1587282499042" />
-    <state width="1419" height="213" key="GridCell.Tab.0.left/0.23.1440.828@0.23.1440.828" timestamp="1591961930828" />
-    <state width="1419" height="213" key="GridCell.Tab.0.right" timestamp="1591961930829">
+    <state width="1419" height="213" key="GridCell.Tab.0.left/0.23.1440.828@0.23.1440.828" timestamp="1591965464123" />
+    <state width="1419" height="213" key="GridCell.Tab.0.right" timestamp="1591965464124">
       <screen x="0" y="23" width="1440" height="828" />
     </state>
     <state width="1419" height="192" key="GridCell.Tab.0.right/0.23.1440.826@0.23.1440.826" timestamp="1587282499043" />
-    <state width="1419" height="213" key="GridCell.Tab.0.right/0.23.1440.828@0.23.1440.828" timestamp="1591961930829" />
+    <state width="1419" height="213" key="GridCell.Tab.0.right/0.23.1440.828@0.23.1440.828" timestamp="1591965464124" />
     <state width="1419" height="265" key="GridCell.Tab.1.bottom" timestamp="1591956953982">
       <screen x="0" y="23" width="1440" height="828" />
     </state>
@@ -248,10 +248,10 @@
     </state>
     <state x="506" y="134" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.826@0.23.1440.826" timestamp="1586269579618" />
     <state x="506" y="98" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.828@0.23.1440.828" timestamp="1591953619304" />
-    <state x="385" y="173" width="670" height="678" key="search.everywhere.popup" timestamp="1591957005869">
+    <state x="385" y="173" width="670" height="678" key="search.everywhere.popup" timestamp="1591964935906">
       <screen x="0" y="23" width="1440" height="828" />
     </state>
     <state x="385" y="173" width="670" height="676" key="search.everywhere.popup/0.23.1440.826@0.23.1440.826" timestamp="1586712124824" />
-    <state x="385" y="173" width="670" height="678" key="search.everywhere.popup/0.23.1440.828@0.23.1440.828" timestamp="1591957005869" />
+    <state x="385" y="173" width="670" height="678" key="search.everywhere.popup/0.23.1440.828@0.23.1440.828" timestamp="1591964935906" />
   </component>
 </project>
