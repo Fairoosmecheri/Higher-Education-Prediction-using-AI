@@ -1,21 +1,20 @@
-
 from PyQt5 import QtCore, QtGui, QtWidgets
 from DBConnection import DBConnection
 from sklearn.neural_network import MLPClassifier
 import numpy as np
 import pandas as pd
-import sys
-import time
+
+
 class Ui_Predict(object):
     def browse_file(self):
         fileName, _ = QtWidgets.QFileDialog.getOpenFileName(None, "Select File")
         print(fileName)
-        self.lineEdit.setText(fileName)
+        self.fileName.setText(fileName)
 
     def predict(self):
         try:
             trainset = []
-            fname = self.lineEdit.text()
+            fname = self.fileName.text()
             database = DBConnection.getConnection()
             cursor = database.cursor()
             cursor.execute(
@@ -47,21 +46,18 @@ class Ui_Predict(object):
             # Train the model
             y_train = np.array(y_train)
 
-
             tf = pd.read_csv(fname)
             testdata = np.array(tf)
             print("td=", testdata)
             testdata = testdata.reshape(len(testdata), -1)
 
-
-
             cnn = MLPClassifier()
             cnn.fit(trainset, y_train)
-            #s = time.clock()
+            # s = time.clock()
             reslt = cnn.predict(testdata)
-            #e = time.clock()
-            #t = round(e - s, 5)
-            #print("Time:", t, "seconds")
+            # e = time.clock()
+            # t = round(e - s, 5)
+            # print("Time:", t, "seconds")
             print("pre=", reslt)
 
             self.result.setText(reslt[0])
@@ -75,47 +71,46 @@ class Ui_Predict(object):
         Dialog.setObjectName("Dialog")
         Dialog.resize(652, 501)
         Dialog.setStyleSheet("background-color: rgb(0, 85, 127);")
-        self.label = QtWidgets.QLabel(Dialog)
-        self.label.setGeometry(QtCore.QRect(180, 80, 331, 61))
-        self.label.setStyleSheet("color: rgb(255, 255, 255);\n"
-"font: 12pt \"Franklin Gothic Heavy\";")
-        self.label.setObjectName("label")
-        self.label_2 = QtWidgets.QLabel(Dialog)
-        self.label_2.setGeometry(QtCore.QRect(70, 165, 141, 31))
-        self.label_2.setStyleSheet("color: rgb(255, 255, 255);\n"
-"font: 10pt \"Franklin Gothic Heavy\";")
-        self.label_2.setObjectName("label_2")
-        self.lineEdit = QtWidgets.QLineEdit(Dialog)
-        self.lineEdit.setGeometry(QtCore.QRect(70, 200, 381, 41))
-        self.lineEdit.setStyleSheet("color: rgb(0, 0, 0);\n"
-"font: 75 12pt \"Verdana\";")
-        self.lineEdit.setText("")
-        self.lineEdit.setObjectName("lineEdit")
-        self.pushButton = QtWidgets.QPushButton(Dialog)
-        self.pushButton.setGeometry(QtCore.QRect(180, 280, 181, 41))
-        self.pushButton.setStyleSheet("background-color: rgb(170, 85, 0);\n"
-"color: rgb(255, 255, 255);\n"
-"font: 75 12pt \"Verdana\";")
-        self.pushButton.setObjectName("pushButton")
-        self.pushButton.clicked.connect(self.predict)
+        self.titleLabel = QtWidgets.QLabel(Dialog)
+        self.titleLabel.setGeometry(QtCore.QRect(180, 80, 331, 61))
+        self.titleLabel.setStyleSheet("color: rgb(255, 255, 255);\n"
+                                      "font: 12pt \"Franklin Gothic Heavy\";")
+        self.titleLabel.setObjectName("titleLabel")
+        self.selectFileLabel = QtWidgets.QLabel(Dialog)
+        self.selectFileLabel.setGeometry(QtCore.QRect(70, 165, 141, 31))
+        self.selectFileLabel.setStyleSheet("color: rgb(255, 255, 255);\n"
+                                           "font: 10pt \"Franklin Gothic Heavy\";")
+        self.selectFileLabel.setObjectName("selectFileLabel")
+        self.fileName = QtWidgets.QLineEdit(Dialog)
+        self.fileName.setGeometry(QtCore.QRect(70, 200, 381, 41))
+        self.fileName.setStyleSheet("color: rgb(0, 0, 0);\n"
+                                         "font: 75 12pt \"Verdana\";")
+        self.fileName.setText("")
+        self.fileName.setObjectName("fileName")
+        self.predictBtn = QtWidgets.QPushButton(Dialog)
+        self.predictBtn.setGeometry(QtCore.QRect(180, 280, 181, 41))
+        self.predictBtn.setStyleSheet("background-color: rgb(170, 85, 0);\n"
+                                      "color: rgb(255, 255, 255);\n"
+                                      "font: 75 12pt \"Verdana\";")
+        self.predictBtn.setObjectName("predictBtn")
+        self.predictBtn.clicked.connect(self.predict)
 
         self.browseBtn = QtWidgets.QPushButton(Dialog)
         self.browseBtn.setGeometry(QtCore.QRect(480, 202, 151, 41))
         self.browseBtn.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-                                       "font: 75 16pt \"Times New Roman\";\n")
+                                     "font: 75 16pt \"Times New Roman\";\n")
         self.browseBtn.setObjectName("browseBtn")
         self.browseBtn.clicked.connect(self.browse_file)
-        
 
-        self.label_3 = QtWidgets.QLabel(Dialog)
-        self.label_3.setGeometry(QtCore.QRect(90, 390, 141, 31))
-        self.label_3.setStyleSheet("color: rgb(255, 255, 255);\n"
-"font: 12pt \"Franklin Gothic Heavy\";")
-        self.label_3.setObjectName("label_3")
+        self.resultLabel = QtWidgets.QLabel(Dialog)
+        self.resultLabel.setGeometry(QtCore.QRect(90, 390, 141, 31))
+        self.resultLabel.setStyleSheet("color: rgb(255, 255, 255);\n"
+                                       "font: 12pt \"Franklin Gothic Heavy\";")
+        self.resultLabel.setObjectName("resultLabel")
         self.result = QtWidgets.QLabel(Dialog)
         self.result.setGeometry(QtCore.QRect(230, 380, 351, 51))
         self.result.setStyleSheet("color: rgb(255, 255, 255);\n"
-"font: 12pt \"Franklin Gothic Heavy\";")
+                                  "font: 12pt \"Franklin Gothic Heavy\";")
         self.result.setText("")
         self.result.setObjectName("result")
 
@@ -125,19 +120,19 @@ class Ui_Predict(object):
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Prediction"))
-        self.label.setText(_translate("Dialog", "Prediction Universities Degree"))
-        self.label_2.setText(_translate("Dialog", "Select Testing File"))
-        self.pushButton.setText(_translate("Dialog", "Predict"))
+        self.titleLabel.setText(_translate("Dialog", "Prediction Universities Degree"))
+        self.selectFileLabel.setText(_translate("Dialog", "Select Testing File"))
+        self.predictBtn.setText(_translate("Dialog", "Predict"))
         self.browseBtn.setText(_translate("Dialog", "Browse"))
-        self.label_3.setText(_translate("Dialog", "Result       :"))
+        self.resultLabel.setText(_translate("Dialog", "Result       :"))
 
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     Dialog = QtWidgets.QDialog()
     ui = Ui_Predict()
     ui.setupUi(Dialog)
     Dialog.show()
     sys.exit(app.exec_())
-

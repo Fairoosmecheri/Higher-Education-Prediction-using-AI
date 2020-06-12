@@ -7,7 +7,7 @@ class UploadDataSet(object):
     def browse_file(self):
         fileName, _ = QtWidgets.QFileDialog.getOpenFileName(None, "Select File")
         print(fileName)
-        self.lineEdit.setText(fileName)
+        self.fileName.setText(fileName)
 
     def showMessageBox(self, title, message):
             msgBox = QtWidgets.QMessageBox()
@@ -18,7 +18,7 @@ class UploadDataSet(object):
             msgBox.exec_()
     def saveToDB(self):
         try:
-            fname=self.lineEdit.text()
+            fname=self.fileName.text()
             book = xlrd.open_workbook(fname)
             sheet = book.sheet_by_index(0)
             database = DBConnection.getConnection()
@@ -46,7 +46,7 @@ class UploadDataSet(object):
                 # rows=str(sheet.nrows)
                 print("inserted")
             self.showMessageBox("Information", "DataSet Loaded Successfully")
-            self.lineEdit.setText("")
+            self.fileName.setText("")
         except Exception as e:
             print("Error=" + e.args[0])
             tb = sys.exc_info()[2]
@@ -55,29 +55,33 @@ class UploadDataSet(object):
         Dialog.setObjectName("Dialog")
         Dialog.resize(544, 388)
         Dialog.setStyleSheet("background-color: rgb(255, 170, 127);")
-        self.label = QtWidgets.QLabel(Dialog)
-        self.label.setGeometry(QtCore.QRect(200, 70, 141, 20))
-        self.label.setStyleSheet("font: 75 14pt \"Times New Roman\";")
-        self.label.setObjectName("label")
-        self.label_2 = QtWidgets.QLabel(Dialog)
-        self.label_2.setGeometry(QtCore.QRect(110, 130, 71, 16))
-        self.label_2.setStyleSheet("font: 75 12pt \"Times New Roman\";")
-        self.label_2.setObjectName("label_2")
-        self.lineEdit = QtWidgets.QLineEdit(Dialog)
-        self.lineEdit.setGeometry(QtCore.QRect(110, 160, 251, 31))
-        self.lineEdit.setText("")
-        self.lineEdit.setObjectName("lineEdit")
-        self.pushButton = QtWidgets.QPushButton(Dialog)
-        self.pushButton.setGeometry(QtCore.QRect(380, 160, 75, 31))
-        self.pushButton.setStyleSheet("font: 75 12pt \"Times New Roman\";")
-        self.pushButton.setObjectName("pushButton")
-        self.pushButton.clicked.connect(self.browse_file)
-        self.pushButton_2 = QtWidgets.QPushButton(Dialog)
-        self.pushButton_2.setGeometry(QtCore.QRect(190, 210, 75, 23))
-        self.pushButton_2.setStyleSheet("background-color: rgb(85, 85, 0);\n"
-"color: rgb(255, 255, 255);\n"
-"font: 75 12pt \"Times New Roman\";")
-        self.pushButton_2.setObjectName("pushButton_2")
+        self.titleLabel = QtWidgets.QLabel(Dialog)
+        self.titleLabel.setGeometry(QtCore.QRect(200, 70, 141, 20))
+        self.titleLabel.setStyleSheet("font: 75 14pt \"Times New Roman\";")
+        self.titleLabel.setObjectName("titleLabel")
+        self.selectFileLabel = QtWidgets.QLabel(Dialog)
+        self.selectFileLabel.setGeometry(QtCore.QRect(110, 130, 71, 16))
+        self.selectFileLabel.setStyleSheet("font: 75 12pt \"Times New Roman\";")
+        self.selectFileLabel.setObjectName("selectFileLabel")
+        self.fileName = QtWidgets.QLineEdit(Dialog)
+        self.fileName.setGeometry(QtCore.QRect(110, 160, 251, 31))
+        self.fileName.setText("")
+        self.fileName.setObjectName("fileName")
+        self.browseBtn = QtWidgets.QPushButton(Dialog)
+        self.browseBtn.setGeometry(QtCore.QRect(380, 152, 151, 41))
+        self.browseBtn.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+                                     "font: 75 16pt \"Times New Roman\";\n")
+        self.browseBtn.setObjectName("browseBtn")
+        self.browseBtn.clicked.connect(self.browse_file)
+
+        self.storeBtn = QtWidgets.QPushButton(Dialog)
+        self.storeBtn.setGeometry(QtCore.QRect(190, 210, 151, 41))
+        self.storeBtn.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+                                     "font: 75 16pt \"Times New Roman\";\n")
+        self.storeBtn.setObjectName("browseBtn")
+        self.storeBtn.clicked.connect(self.saveToDB)
+
+
 
 
 
@@ -87,11 +91,11 @@ class UploadDataSet(object):
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Upload DataSet"))
-        self.label.setText(_translate("Dialog", "Upload  DataSet"))
-        self.label_2.setText(_translate("Dialog", "Select File"))
-        self.pushButton.setText(_translate("Dialog", "Browse"))
-        self.pushButton_2.setText(_translate("Dialog", "Store"))
-        self.pushButton_2.clicked.connect(self.saveToDB)
+        self.titleLabel.setText(_translate("Dialog", "Upload  DataSet"))
+        self.selectFileLabel.setText(_translate("Dialog", "Select File"))
+        self.browseBtn.setText(_translate("Dialog", "Browse"))
+        self.storeBtn.setText(_translate("Dialog", "Store"))
+
 
 
 
