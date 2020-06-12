@@ -9,9 +9,6 @@ class UploadDataSet(object):
         print(fileName)
         self.lineEdit.setText(fileName)
 
-    def testbtnaction(self):
-        self.showMessageBox("Information", "Test Button working successfully")
-
     def showMessageBox(self, title, message):
             msgBox = QtWidgets.QMessageBox()
             msgBox.setIcon(QtWidgets.QMessageBox.Information)
@@ -81,11 +78,7 @@ class UploadDataSet(object):
 "color: rgb(255, 255, 255);\n"
 "font: 75 12pt \"Times New Roman\";")
         self.pushButton_2.setObjectName("pushButton_2")
-        self.testBtn = QtWidgets.QPushButton(Dialog)
-        self.testBtn.setGeometry(QtCore.QRect(380, 240, 75, 31))
-        self.testBtn.setStyleSheet("font: 75 12pt \"Times New Roman\";")
-        self.testBtn.setObjectName("pushButton")
-        self.testBtn.clicked.connect(self.testbtnaction)
+
 
 
         self.retranslateUi(Dialog)
@@ -99,7 +92,7 @@ class UploadDataSet(object):
         self.pushButton.setText(_translate("Dialog", "Browse"))
         self.pushButton_2.setText(_translate("Dialog", "Store"))
         self.pushButton_2.clicked.connect(self.saveToDB)
-        self.testBtn.setText(_translate("Dialog", "Browse"))
+
 
 
 
