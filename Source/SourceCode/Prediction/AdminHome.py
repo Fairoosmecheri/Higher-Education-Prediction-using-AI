@@ -17,12 +17,6 @@ class AdminHome(object):
         self.ui = UploadDataSet()
         self.ui.setupUi(self.upld)
         self.upld.show()
-
-
-
-
-
-
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(650, 496)

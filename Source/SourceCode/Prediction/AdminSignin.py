@@ -1,12 +1,11 @@
-
 from PyQt5 import QtCore, QtGui, QtWidgets
-import mysql.connector
-import xlrd
+
 from AdminHome import AdminHome
 
-class AdminLogin(object):
-    def adminLogin(self):
 
+class AdminSignin(object):
+
+    def adminSignin(self):
         uname = self.lineEdit.text()
         passwd = self.lineEdit_1.text()
         if ((uname == "admin") and (passwd == "admin")):
@@ -14,7 +13,17 @@ class AdminLogin(object):
             self.ui = AdminHome()
             self.ui.setupUi(self.admin)
             self.admin.show()
+        else:
+            self.showMessageBox("Information", "Incorrect username or password")
 
+
+    def showMessageBox(self, title, message):
+            msgBox = QtWidgets.QMessageBox()
+            msgBox.setIcon(QtWidgets.QMessageBox.Information)
+            msgBox.setWindowTitle(title)
+            msgBox.setText(message)
+            msgBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
+            msgBox.exec_()
 
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
@@ -40,12 +49,16 @@ class AdminLogin(object):
         self.lineEdit_1.setGeometry(QtCore.QRect(110, 210, 251, 31))
         self.lineEdit_1.setText("")
         self.lineEdit_1.setObjectName("lineEdit_1")
-        self.pushButton_2 = QtWidgets.QPushButton(Dialog)
-        self.pushButton_2.setGeometry(QtCore.QRect(190, 260, 75, 23))
-        self.pushButton_2.setStyleSheet("background-color: rgb(85, 85, 0);\n"
-"color: rgb(255, 255, 255);\n"
-"font: 75 12pt \"Times New Roman\";")
-        self.pushButton_2.setObjectName("pushButton_2")
+        self.pushButton = QtWidgets.QPushButton(Dialog)
+        self.pushButton.setGeometry(QtCore.QRect(164, 260, 151, 41))
+        self.pushButton.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+                                      "font: 75 16pt \"Times New Roman\";\n")
+        # self.pushButton.setStyleSheet("font: 75 12pt \"Times New Roman\";\n"
+        # "background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 178, 102, 255), stop:0.55 rgba(235, 148, 61, 255), stop:0.98 rgba(0, 0, 0, 255), stop:1 rgba(0, 0, 0, 0));")
+        self.pushButton.setObjectName("pushButton")
+        self.pushButton.clicked.connect(self.adminSignin)
+
+
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -56,15 +69,15 @@ class AdminLogin(object):
         self.label.setText(_translate("Dialog", "Admin Login"))
         self.label_2.setText(_translate("Dialog", "Username"))
         self.label_3.setText(_translate("Dialog", "Password"))
-        self.pushButton_2.setText(_translate("Dialog", "Login"))
-        self.pushButton_2.clicked.connect(self.adminLogin)
+        self.pushButton.setText(_translate("Dialog", "Sign in"))
+
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     Dialog = QtWidgets.QDialog()
-    ui = AdminLogin()
+    ui = AdminSignin()
     ui.setupUi(Dialog)
     Dialog.show()
     sys.exit(app.exec_())
-

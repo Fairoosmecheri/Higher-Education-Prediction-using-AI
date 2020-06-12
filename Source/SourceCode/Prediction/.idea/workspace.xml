@@ -25,7 +25,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.AdminSignin">
     <configuration name="AdminLogin" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Prediction" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -39,6 +39,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/AdminLogin.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="AdminSignin" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Prediction" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/AdminSignin.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -81,27 +102,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/UploadDataSet.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="UserLogin" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Prediction" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/UserLogin.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -154,19 +154,19 @@
     </configuration>
     <list>
       <item itemvalue="Python.main" />
-      <item itemvalue="Python.AdminLogin" />
-      <item itemvalue="Python.UserLogin" />
       <item itemvalue="Python.UserRegister" />
       <item itemvalue="Python.Predict" />
       <item itemvalue="Python.UploadDataSet" />
+      <item itemvalue="Python.AdminSignin" />
+      <item itemvalue="Python.AdminLogin" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.AdminSignin" />
+        <item itemvalue="Python.AdminLogin" />
         <item itemvalue="Python.UploadDataSet" />
         <item itemvalue="Python.Predict" />
         <item itemvalue="Python.UserRegister" />
-        <item itemvalue="Python.UserLogin" />
-        <item itemvalue="Python.AdminLogin" />
       </list>
     </recent_temporary>
   </component>
@@ -189,34 +189,51 @@
     </state>
     <state x="184" y="99" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.826@0.23.1440.826" timestamp="1586713197013" />
     <state x="184" y="99" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.828@0.23.1440.828" timestamp="1591952794894" />
-    <state x="458" y="191" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1587279022482">
-      <screen x="0" y="23" width="1440" height="826" />
+    <state x="458" y="191" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1591957468958">
+      <screen x="0" y="23" width="1440" height="828" />
     </state>
     <state x="458" y="191" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.826@0.23.1440.826" timestamp="1587279022482" />
+    <state x="458" y="191" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.828@0.23.1440.828" timestamp="1591957468958" />
     <state x="508" y="199" key="FileChooserDialogImpl" timestamp="1586713119566">
       <screen x="0" y="23" width="1440" height="826" />
     </state>
     <state x="508" y="199" key="FileChooserDialogImpl/0.23.1440.826@0.23.1440.826" timestamp="1586713119566" />
-    <state width="1419" height="213" key="GridCell.Tab.0.bottom" timestamp="1591953817630">
+    <state width="1419" height="213" key="GridCell.Tab.0.bottom" timestamp="1591957645734">
       <screen x="0" y="23" width="1440" height="828" />
     </state>
     <state width="1419" height="192" key="GridCell.Tab.0.bottom/0.23.1440.826@0.23.1440.826" timestamp="1587282499044" />
-    <state width="1419" height="213" key="GridCell.Tab.0.bottom/0.23.1440.828@0.23.1440.828" timestamp="1591953817630" />
-    <state width="1419" height="213" key="GridCell.Tab.0.center" timestamp="1591953817629">
+    <state width="1419" height="213" key="GridCell.Tab.0.bottom/0.23.1440.828@0.23.1440.828" timestamp="1591957645734" />
+    <state width="1419" height="213" key="GridCell.Tab.0.center" timestamp="1591957645732">
       <screen x="0" y="23" width="1440" height="828" />
     </state>
     <state width="1419" height="192" key="GridCell.Tab.0.center/0.23.1440.826@0.23.1440.826" timestamp="1587282499043" />
-    <state width="1419" height="213" key="GridCell.Tab.0.center/0.23.1440.828@0.23.1440.828" timestamp="1591953817629" />
-    <state width="1419" height="213" key="GridCell.Tab.0.left" timestamp="1591953817628">
+    <state width="1419" height="213" key="GridCell.Tab.0.center/0.23.1440.828@0.23.1440.828" timestamp="1591957645732" />
+    <state width="1419" height="213" key="GridCell.Tab.0.left" timestamp="1591957645731">
       <screen x="0" y="23" width="1440" height="828" />
     </state>
     <state width="1419" height="192" key="GridCell.Tab.0.left/0.23.1440.826@0.23.1440.826" timestamp="1587282499042" />
-    <state width="1419" height="213" key="GridCell.Tab.0.left/0.23.1440.828@0.23.1440.828" timestamp="1591953817628" />
-    <state width="1419" height="213" key="GridCell.Tab.0.right" timestamp="1591953817629">
+    <state width="1419" height="213" key="GridCell.Tab.0.left/0.23.1440.828@0.23.1440.828" timestamp="1591957645731" />
+    <state width="1419" height="213" key="GridCell.Tab.0.right" timestamp="1591957645733">
       <screen x="0" y="23" width="1440" height="828" />
     </state>
     <state width="1419" height="192" key="GridCell.Tab.0.right/0.23.1440.826@0.23.1440.826" timestamp="1587282499043" />
-    <state width="1419" height="213" key="GridCell.Tab.0.right/0.23.1440.828@0.23.1440.828" timestamp="1591953817629" />
+    <state width="1419" height="213" key="GridCell.Tab.0.right/0.23.1440.828@0.23.1440.828" timestamp="1591957645733" />
+    <state width="1419" height="265" key="GridCell.Tab.1.bottom" timestamp="1591956953982">
+      <screen x="0" y="23" width="1440" height="828" />
+    </state>
+    <state width="1419" height="265" key="GridCell.Tab.1.bottom/0.23.1440.828@0.23.1440.828" timestamp="1591956953982" />
+    <state width="1419" height="265" key="GridCell.Tab.1.center" timestamp="1591956953981">
+      <screen x="0" y="23" width="1440" height="828" />
+    </state>
+    <state width="1419" height="265" key="GridCell.Tab.1.center/0.23.1440.828@0.23.1440.828" timestamp="1591956953981" />
+    <state width="1419" height="265" key="GridCell.Tab.1.left" timestamp="1591956953980">
+      <screen x="0" y="23" width="1440" height="828" />
+    </state>
+    <state width="1419" height="265" key="GridCell.Tab.1.left/0.23.1440.828@0.23.1440.828" timestamp="1591956953980" />
+    <state width="1419" height="265" key="GridCell.Tab.1.right" timestamp="1591956953981">
+      <screen x="0" y="23" width="1440" height="828" />
+    </state>
+    <state width="1419" height="265" key="GridCell.Tab.1.right/0.23.1440.828@0.23.1440.828" timestamp="1591956953981" />
     <state x="229" y="75" key="SettingsEditor" timestamp="1591953816111">
       <screen x="0" y="23" width="1440" height="828" />
     </state>
@@ -231,9 +248,10 @@
     </state>
     <state x="506" y="134" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.826@0.23.1440.826" timestamp="1586269579618" />
     <state x="506" y="98" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.828@0.23.1440.828" timestamp="1591953619304" />
-    <state x="385" y="173" width="670" height="676" key="search.everywhere.popup" timestamp="1586712124824">
-      <screen x="0" y="23" width="1440" height="826" />
+    <state x="385" y="173" width="670" height="678" key="search.everywhere.popup" timestamp="1591957005869">
+      <screen x="0" y="23" width="1440" height="828" />
     </state>
     <state x="385" y="173" width="670" height="676" key="search.everywhere.popup/0.23.1440.826@0.23.1440.826" timestamp="1586712124824" />
+    <state x="385" y="173" width="670" height="678" key="search.everywhere.popup/0.23.1440.828@0.23.1440.828" timestamp="1591957005869" />
   </component>
 </project>

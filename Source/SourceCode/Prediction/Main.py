@@ -1,17 +1,15 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-from AdminLogin import AdminLogin
+from AdminSignin import AdminSignin
 from Predict import Ui_Predict
-from AdminHome import AdminHome
 from UserLogin import UserLogin
-
 
 class Ui_Dialog(object):
 
-    def adminlogin(self):
+    def adminsignin(self):
         self.admin = QtWidgets.QDialog()
-        self.ui = AdminLogin()
+        self.ui = AdminSignin()
         self.ui.setupUi(self.admin)
         self.admin.show()
     def userhome(self):
@@ -35,7 +33,7 @@ class Ui_Dialog(object):
         self.pushButton.setStyleSheet("background-color: rgb(255, 255, 255);\n"
         "font: 75 16pt \"Times New Roman\";\n")
         self.pushButton.setObjectName("pushButton")
-        self.pushButton.clicked.connect(self.adminlogin)
+        self.pushButton.clicked.connect(self.adminsignin)
         self.pushButton_2 = QtWidgets.QPushButton(Dialog)
         self.pushButton_2.setGeometry(QtCore.QRect(210, 350, 191, 51))
         self.pushButton_2.setStyleSheet("background-color: rgb(255, 255, 255);\n"
