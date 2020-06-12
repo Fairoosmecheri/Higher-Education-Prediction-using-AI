@@ -10,12 +10,20 @@ class UserRegister(object):
         database = DBConnection.getConnection()
         cursor = database.cursor()
         database.commit()
-
-        query = "insert into users (uname,  passwd) values (%s,%s)"
+        query = "insert into user (uname,  password) values (%s,%s)"
         values = (uname, passwd)
         cursor.execute(query, values)
-
+        database.commit()
         print("Register Successfully")
+        self.showMessageBox("Information", "User Registered Successfully")
+
+    def showMessageBox(self, title, message):
+            msgBox = QtWidgets.QMessageBox()
+            msgBox.setIcon(QtWidgets.QMessageBox.Information)
+            msgBox.setWindowTitle(title)
+            msgBox.setText(message)
+            msgBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
+            msgBox.exec_()
 
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
@@ -41,13 +49,12 @@ class UserRegister(object):
         self.passw_lineEdit.setGeometry(QtCore.QRect(110, 210, 251, 31))
         self.passw_lineEdit.setText("")
         self.passw_lineEdit.setObjectName("passw_lineEdit")
-        self.regbtn = QtWidgets.QPushButton(Dialog)
-        self.regbtn.setGeometry(QtCore.QRect(190, 260, 75, 23))
-        self.regbtn.setStyleSheet("background-color: rgb(85, 85, 0);\n"
-                                        "color: rgb(255, 255, 255);\n"
-                                        "font: 75 12pt \"Times New Roman\";")
-        self.regbtn.setObjectName("regbtn")
-        self.regbtn.clicked.connect(self.userRegister)
+        self.registerBtn = QtWidgets.QPushButton(Dialog)
+        self.registerBtn.setGeometry(QtCore.QRect(164, 300, 151, 41))
+        self.registerBtn.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+                                       "font: 75 16pt \"Times New Roman\";\n")
+        self.registerBtn.setObjectName("registerBtn")
+        self.registerBtn.clicked.connect(self.userRegister)
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -58,7 +65,7 @@ class UserRegister(object):
         self.label.setText(_translate("Dialog", "User Register"))
         self.name.setText(_translate("Dialog", "Username"))
         self.passw.setText(_translate("Dialog", "Password"))
-        self.regbtn.setText(_translate("Dialog", "Register"))
+        self.registerBtn.setText(_translate("Dialog", "Register"))
 
 if __name__ == "__main__":
     import sys
