@@ -6,89 +6,83 @@ import pandas as pd
 
 
 class Ui_Predict(object):
-    #def browse_file(self):
-    #    fileName, _ = QtWidgets.QFileDialog.getOpenFileName(None, "Select File")
-    #    print(fileName)
-    #    self.fileName.setText(fileName)
 
     def predict(self):
         try:
             trainset = []
 
+            if ( self.chinese.text() == "" or self.math.text() == "" or self.phy.text() == "" or self.che.text() == "" or self.bio.text() == "" or self.eng.text() == "" or self.sprt.text() == "" or self.condt.text() == "" or self.art.text() == "" ):
+                self.showMessageBox("Information", "Please enter marks of all subjects")
+            else :
 
-            chinesemark = int(self.chinese.text())
-            mathmark = int(self.math.text())
-            phymark = int(self.phy.text())
-            chemark = int(self.che.text())
-            biomark = int(self.bio.text())
-            histmark = int(self.hist.text())
-            condtmark = int(self.condt.text())
-            sprtmark = int(self.sprt.text())
-            engmark = int(self.eng.text())
-            artmark = int(self.art.text())
+                chinesemark = int(self.chinese.text())
+                mathmark = int(self.math.text())
+                phymark = int(self.phy.text())
+                chemark = int(self.che.text())
+                biomark = int(self.bio.text())
+                histmark = int(self.hist.text())
+                condtmark = int(self.condt.text())
+                sprtmark = int(self.sprt.text())
+                engmark = int(self.eng.text())
+                artmark = int(self.art.text())
 
-            testingdata = [mathmark, chinesemark, engmark, phymark, chemark,biomark,histmark,condtmark,sprtmark,artmark]
-            testingdata = [testingdata]
-            testingdata = np.array(testingdata)
-            print("testingdata = ",testingdata)
+                testingdata = [mathmark, chinesemark, engmark, phymark, chemark,biomark,histmark,condtmark,sprtmark,artmark]
+                testingdata = [testingdata]
+                testingdata = np.array(testingdata)
+                print("testingdata = ",testingdata)
+                testdata = testingdata.reshape(len(testingdata), -1)
 
+                database = DBConnection.getConnection()
+                cursor = database.cursor()
+                cursor.execute(
+                    "select math,chinese,eng,phy,che,bio,hist,condt,sprt,art,result from dataset")
+                row = cursor.fetchall()
+                y_train = []
+                trainset.clear()
+                y_train.clear()
+                for r in row:
+                    x_train = []
+                    x_train.clear()
+                    x_train.append(float(r[0]))
+                    x_train.append(float(r[1]))
+                    x_train.append(float(r[2]))
+                    x_train.append(float(r[3]))
+                    x_train.append(float(r[4]))
+                    x_train.append(float(r[5]))
+                    x_train.append(float(r[6]))
+                    x_train.append(float(r[7]))
+                    x_train.append(float(r[8]))
+                    x_train.append(float(r[9]))
+                    y_train.append(r[10])
+                    trainset.append(x_train)
+                print("y=", y_train)
+                print("trd=", trainset)
+                trainset = np.array(trainset)
+                print("trd=", trainset)
 
-            database = DBConnection.getConnection()
-            cursor = database.cursor()
-            cursor.execute(
-                "select math,chinese,eng,phy,che,bio,hist,condt,sprt,art,result from dataset")
-            row = cursor.fetchall()
-            y_train = []
-            trainset.clear()
-            y_train.clear()
-            for r in row:
-                x_train = []
-                x_train.clear()
-                x_train.append(float(r[0]))
-                x_train.append(float(r[1]))
-                x_train.append(float(r[2]))
-                x_train.append(float(r[3]))
-                x_train.append(float(r[4]))
-                x_train.append(float(r[5]))
-                x_train.append(float(r[6]))
-                x_train.append(float(r[7]))
-                x_train.append(float(r[8]))
-                x_train.append(float(r[9]))
-                y_train.append(r[10])
-                trainset.append(x_train)
-            print("y=", y_train)
-            print("trd=", trainset)
-            trainset = np.array(trainset)
-            print("trd=", trainset)
+                # Train the model
+                print("y_train = ",y_train)
+                y_train = np.array(y_train)
+                print("y_train = ",y_train)
 
-            # Train the model
-            print("y_train = ",y_train)
-            y_train = np.array(y_train)
-            print("y_train = ",y_train)
-
-
-            #fname = "testdata_stdnt.csv"
-            #tf = pd.read_csv(fname)
-            #testdata = np.array(tf)
-            #testdata = np.array(testingdata)
-            #print("td=", testdata)
-            testdata = testingdata.reshape(len(testingdata), -1)
-
-            cnn = MLPClassifier()
-            cnn.fit(trainset, y_train)
-            # s = time.clock()
-            reslt = cnn.predict(testdata)
-            # e = time.clock()
-            # t = round(e - s, 5)
-            # print("Time:", t, "seconds")
-            print("pre=", reslt)
-
-            self.result.setText(reslt[0])
+                cnn = MLPClassifier()
+                cnn.fit(trainset, y_train)
+                reslt = cnn.predict(testdata)
+                print("pre=", reslt)
+                self.result.setText(reslt[0])
 
         except Exception as e:
             print("Error=" + e.args[0])
             tb = sys.exc_info()[2]
             print(tb.tb_lineno)
+
+    def showMessageBox(self, title, message):
+            msgBox = QtWidgets.QMessageBox()
+            msgBox.setIcon(QtWidgets.QMessageBox.Information)
+            msgBox.setWindowTitle(title)
+            msgBox.setText(message)
+            msgBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
+            msgBox.exec_()
 
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
@@ -99,7 +93,6 @@ class Ui_Predict(object):
         self.titleLabel.setStyleSheet("color: rgb(255, 255, 255);\n"
                                       "font: 12pt \"Franklin Gothic Heavy\";")
         self.titleLabel.setObjectName("titleLabel")
-
 
         self.mathLabel = QtWidgets.QLabel(Dialog)
         self.mathLabel.setGeometry(QtCore.QRect(70, 165, 60, 40))
@@ -200,17 +193,6 @@ class Ui_Predict(object):
         self.art.setGeometry(QtCore.QRect(700, 200, 60, 40))
         self.art.setText("")
         self.art.setObjectName("art")
-
-
-
-
-
-
-
-
-
-
-
 
         self.predictBtn = QtWidgets.QPushButton(Dialog)
         self.predictBtn.setGeometry(QtCore.QRect(180, 280, 181, 41))

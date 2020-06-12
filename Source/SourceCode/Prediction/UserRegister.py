@@ -7,15 +7,18 @@ class UserRegister(object):
     def userRegister(self):
         uname = self.usernameInput.text()
         passwd = self.passwordInput.text()
-        database = DBConnection.getConnection()
-        cursor = database.cursor()
-        database.commit()
-        query = "insert into user (uname,  password) values (%s,%s)"
-        values = (uname, passwd)
-        cursor.execute(query, values)
-        database.commit()
-        print("Register Successfully")
-        self.showMessageBox("Information", "User Registered Successfully")
+        if (uname == "" or passwd == ""):
+            self.showMessageBox("Information", "Please fill all fields.")
+        else :
+            database = DBConnection.getConnection()
+            cursor = database.cursor()
+            database.commit()
+            query = "insert into user (uname,  password) values (%s,%s)"
+            values = (uname, passwd)
+            cursor.execute(query, values)
+            database.commit()
+            print("Register Successfully")
+            self.showMessageBox("Information", "User Registered Successfully")
 
     def showMessageBox(self, title, message):
             msgBox = QtWidgets.QMessageBox()

@@ -19,34 +19,37 @@ class UploadDataSet(object):
     def saveToDB(self):
         try:
             fname=self.fileName.text()
-            book = xlrd.open_workbook(fname)
-            sheet = book.sheet_by_index(0)
-            database = DBConnection.getConnection()
-            cursor = database.cursor()
-            cursor.execute("delete from dataset")
-            database.commit()
-            query = "insert into dataset values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
-            for r in range(1, sheet.nrows):
-                math = sheet.cell(r, 0).value
-                chin = sheet.cell(r, 1).value
-                eng= sheet.cell(r, 2).value
-                phy = sheet.cell(r, 3).value
-                che = sheet.cell(r, 4).value
-                bio= sheet.cell(r, 5).value
-                hist = sheet.cell(r, 6).value
-                condt = sheet.cell(r, 7).value
-                sprt = sheet.cell(r, 8).value
-                art = sheet.cell(r, 9).value
-                sts = sheet.cell(r, 10).value
-                print(math,chin,eng,phy,che,bio,condt,sprt,art,sts)
-                values = (int(math),int(chin),int(eng),int(phy),int(che),int(bio),int(hist),int(condt),int(sprt),int(art),str(sts))
-                cursor.execute(query, values)
+            if (fname == ""):
+                self.showMessageBox("Information", "Dataset is not selected.")
+            else :
+                book = xlrd.open_workbook(fname)
+                sheet = book.sheet_by_index(0)
+                database = DBConnection.getConnection()
+                cursor = database.cursor()
+                cursor.execute("delete from dataset")
                 database.commit()
-                columns = str(sheet.ncols)
-                # rows=str(sheet.nrows)
-                print("inserted")
-            self.showMessageBox("Information", "DataSet Loaded Successfully")
-            self.fileName.setText("")
+                query = "insert into dataset values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+                for r in range(1, sheet.nrows):
+                    math = sheet.cell(r, 0).value
+                    chin = sheet.cell(r, 1).value
+                    eng= sheet.cell(r, 2).value
+                    phy = sheet.cell(r, 3).value
+                    che = sheet.cell(r, 4).value
+                    bio= sheet.cell(r, 5).value
+                    hist = sheet.cell(r, 6).value
+                    condt = sheet.cell(r, 7).value
+                    sprt = sheet.cell(r, 8).value
+                    art = sheet.cell(r, 9).value
+                    sts = sheet.cell(r, 10).value
+                    print(math,chin,eng,phy,che,bio,condt,sprt,art,sts)
+                    values = (int(math),int(chin),int(eng),int(phy),int(che),int(bio),int(hist),int(condt),int(sprt),int(art),str(sts))
+                    cursor.execute(query, values)
+                    database.commit()
+                    columns = str(sheet.ncols)
+                    # rows=str(sheet.nrows)
+                    print("inserted")
+                self.showMessageBox("Information", "DataSet Loaded Successfully")
+                self.fileName.setText("")
         except Exception as e:
             print("Error=" + e.args[0])
             tb = sys.exc_info()[2]
