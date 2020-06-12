@@ -47,7 +47,7 @@ class Ui_Predict(object):
             # Train the model
             y_train = np.array(y_train)
 
-            fname="testdata_stdnt.csv"
+
             tf = pd.read_csv(fname)
             testdata = np.array(tf)
             print("td=", testdata)
@@ -98,13 +98,15 @@ class Ui_Predict(object):
 "font: 75 12pt \"Verdana\";")
         self.pushButton.setObjectName("pushButton")
         self.pushButton.clicked.connect(self.predict)
-        self.pushButton_2 = QtWidgets.QPushButton(Dialog)
-        self.pushButton_2.setGeometry(QtCore.QRect(480, 202, 91, 31))
-        self.pushButton_2.setStyleSheet("\n"
-"color: rgb(255, 255, 255);\n"
-"font: 12pt \"Franklin Gothic Heavy\";")
-        self.pushButton_2.setObjectName("pushButton_2")
-        self.pushButton_2.clicked.connect(self.browse_file)
+
+        self.browseBtn = QtWidgets.QPushButton(Dialog)
+        self.browseBtn.setGeometry(QtCore.QRect(480, 202, 151, 41))
+        self.browseBtn.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+                                       "font: 75 16pt \"Times New Roman\";\n")
+        self.browseBtn.setObjectName("browseBtn")
+        self.browseBtn.clicked.connect(self.browse_file)
+        
+
         self.label_3 = QtWidgets.QLabel(Dialog)
         self.label_3.setGeometry(QtCore.QRect(90, 390, 141, 31))
         self.label_3.setStyleSheet("color: rgb(255, 255, 255);\n"
@@ -126,7 +128,7 @@ class Ui_Predict(object):
         self.label.setText(_translate("Dialog", "Prediction Universities Degree"))
         self.label_2.setText(_translate("Dialog", "Select Testing File"))
         self.pushButton.setText(_translate("Dialog", "Predict"))
-        self.pushButton_2.setText(_translate("Dialog", "Browse"))
+        self.browseBtn.setText(_translate("Dialog", "Browse"))
         self.label_3.setText(_translate("Dialog", "Result       :"))
 
 
