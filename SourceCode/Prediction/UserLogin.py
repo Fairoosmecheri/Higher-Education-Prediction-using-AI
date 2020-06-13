@@ -19,12 +19,16 @@ class UserLogin(object):
         cursor.execute(query,values)
         row = cursor.fetchall()
         if row:
+            self.usernameInput.setText("")
+            self.passwordInput.setText("")
             print("Login success")
             self.user = QtWidgets.QDialog()
             self.ui = Ui_Predict()
             self.ui.setupUi(self.user)
             self.user.show()
         else:
+            self.usernameInput.setText("")
+            self.passwordInput.setText("")
             self.showMessageBox("Information", "Incorrect username or password")
 
     def showMessageBox(self, title, message):

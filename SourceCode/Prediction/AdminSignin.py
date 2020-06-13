@@ -9,11 +9,15 @@ class AdminSignin(object):
         uname = self.usernameLineEdit.text()
         passwd = self.passwwordLineEdit.text()
         if ((uname == "admin") and (passwd == "admin")):
+            self.usernameLineEdit.setText("")
+            self.passwwordLineEdit.setText("")
             self.admin = QtWidgets.QDialog()
             self.ui = AdminHome()
             self.ui.setupUi(self.admin)
             self.admin.show()
         else:
+            self.usernameLineEdit.setText("")
+            self.passwwordLineEdit.setText("")
             self.showMessageBox("Information", "Incorrect username or password")
 
 

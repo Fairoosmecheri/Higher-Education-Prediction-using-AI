@@ -13,12 +13,27 @@ class UserRegister(object):
             database = DBConnection.getConnection()
             cursor = database.cursor()
             database.commit()
-            query = "insert into user (uname,  password) values (%s,%s)"
-            values = (uname, passwd)
-            cursor.execute(query, values)
-            database.commit()
-            print("Register Successfully")
-            self.showMessageBox("Information", "User Registered Successfully")
+
+            query = "select * from user where uname = %s or password = %s"
+            p = ""
+            values = (uname,p)
+            cursor.execute(query,values)
+            row = cursor.fetchall()
+            if row :
+                self.showMessageBox("Information", "Username already exists")
+                self.usernameInput.setText("")
+                self.passwordInput.setText("")
+            else :
+                query = "insert into user (uname,  password) values (%s,%s)"
+                values = (uname, passwd)
+                cursor.execute(query, values)
+                database.commit()
+                print("Register Successfully")
+                self.usernameInput.setText("")
+                self.passwordInput.setText("")
+                self.showMessageBox("Information", "User Registered Successfully")
+        
+
 
     def showMessageBox(self, title, message):
             msgBox = QtWidgets.QMessageBox()
