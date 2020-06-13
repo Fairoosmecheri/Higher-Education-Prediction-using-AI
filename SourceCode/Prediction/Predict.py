@@ -70,6 +70,11 @@ class Ui_Predict(object):
                 reslt = cnn.predict(testdata)
                 print("pre=", reslt)
                 self.result.setText(reslt[0])
+                query = "insert into dataset values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+                values = (str(mathmark), str(chinesemark), str(engmark), str(phymark), str(chemark), str(biomark), str(histmark), str(condtmark), str(sprtmark),str(artmark), str(reslt[0]))
+                print(values)
+                cursor.execute(query, values)
+                database.commit()
 
         except Exception as e:
             print("Error=" + e.args[0])

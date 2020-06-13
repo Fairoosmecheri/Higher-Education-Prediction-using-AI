@@ -19,22 +19,28 @@ class Ui_Dialog(object):
         self.user.show()
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(621, 513)
+        Dialog.resize(1440, 820)
         self.label = QtWidgets.QLabel(Dialog)
-        self.label.setGeometry(QtCore.QRect(-4, 0, 731, 551))
-        self.label.setStyleSheet("background-image: url(../Prediction/images/arch.jpg);")
+        self.label.setGeometry(QtCore.QRect(0, 0, 1440, 820))
+        self.label.setStyleSheet("background-image: url(../Prediction/images/backgroundImage.jpg);")
         self.label.setText("")
         self.label.setObjectName("label")
+
+        self.titleLabel = QtWidgets.QLabel(Dialog)
+        self.titleLabel.setGeometry(QtCore.QRect(630, 190, 790, 61))
+        self.titleLabel.setStyleSheet("color: rgb(255, 255, 255);\n"
+                                      "font: 50pt \"Franklin Gothic Heavy\";")
+        self.titleLabel.setObjectName("titleLabel")
+
+
         self.adminBtn = QtWidgets.QPushButton(Dialog)
-        self.adminBtn.setGeometry(QtCore.QRect(210, 240, 191, 51))
-        self.adminBtn.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-        "font: 75 16pt \"Times New Roman\";\n")
+        self.adminBtn.setGeometry(QtCore.QRect(830, 350, 251, 51))
+        self.adminBtn.setStyleSheet("background-color: rgb(255, 255, 255); font: 20pt \"Franklin Gothic Heavy\";")
         self.adminBtn.setObjectName("adminBtn")
         self.adminBtn.clicked.connect(self.adminsignin)
         self.userBtn = QtWidgets.QPushButton(Dialog)
-        self.userBtn.setGeometry(QtCore.QRect(210, 350, 191, 51))
-        self.userBtn.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-"font: 75 16pt \"Times New Roman\";\n")
+        self.userBtn.setGeometry(QtCore.QRect(830, 450, 251, 51))
+        self.userBtn.setStyleSheet("background-color: rgb(255, 255, 255); font: 20pt \"Franklin Gothic Heavy\";")
         self.userBtn.setObjectName("userBtn")
         self.userBtn.clicked.connect(self.userhome)
         self.retranslateUi(Dialog)
@@ -42,9 +48,10 @@ class Ui_Dialog(object):
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", " Higher Education Prediction Using Deep Learning "))
-        self.adminBtn.setText(_translate("Dialog", "Admin"))
-        self.userBtn.setText(_translate("Dialog", "User"))
+        Dialog.setWindowTitle(_translate("Dialog", " Higher Education Prediction Using AI "))
+        self.adminBtn.setText(_translate("Dialog", "ADMIN"))
+        self.userBtn.setText(_translate("Dialog", "STUDENT"))
+        self.titleLabel.setText(_translate("Dialog", "HIGHER EDUCATION PREDICTION"))
 
 if __name__ == "__main__":
     import sys

@@ -27,34 +27,50 @@ class AdminSignin(object):
 
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(544, 388)
-        Dialog.setStyleSheet("background-color: rgb(255, 170, 127);")
+        Dialog.resize(1440, 820)
+
+        self.label = QtWidgets.QLabel(Dialog)
+        self.label.setGeometry(QtCore.QRect(0, 0, 1440, 820))
+        #self.label.setStyleSheet("background-image: url(../Prediction/images/adminBackground.jpg); background-size : auto;")
+        self.label.setStyleSheet("border-image: url(../Prediction/images/adminBackground.jpg) 0 0 0 0 stretch stretch;")
+        self.label.setText("")
+        self.label.setObjectName("label")
+
         self.titleLabel = QtWidgets.QLabel(Dialog)
-        self.titleLabel.setGeometry(QtCore.QRect(200, 70, 141, 20))
-        self.titleLabel.setStyleSheet("font: 75 14pt \"Times New Roman\";")
+        self.titleLabel.setGeometry(QtCore.QRect(500, 220, 790, 81))
+        self.titleLabel.setStyleSheet("color: rgb(255, 255, 255); font: 70pt \"Franklin Gothic Heavy\";")
         self.titleLabel.setObjectName("titleLabel")
+
         self.usernameLabel = QtWidgets.QLabel(Dialog)
-        self.usernameLabel.setGeometry(QtCore.QRect(110, 130, 71, 16))
-        self.usernameLabel.setStyleSheet("font: 75 12pt \"Times New Roman\";")
+        self.usernameLabel.setGeometry(QtCore.QRect(672, 320, 100, 26))
+        self.usernameLabel.setStyleSheet("font: 18pt \"Franklin Gothic Heavy\";color: #ffffff;")
         self.usernameLabel.setObjectName("usernameLabel")
+
         self.usernameLineEdit = QtWidgets.QLineEdit(Dialog)
-        self.usernameLineEdit.setGeometry(QtCore.QRect(110, 150, 251, 31))
+        self.usernameLineEdit.setGeometry(QtCore.QRect(595, 350, 251, 31))
         self.usernameLineEdit.setText("")
+        self.usernameLineEdit.setAlignment(QtCore.Qt.AlignCenter)
         self.usernameLineEdit.setObjectName("usernameLineEdit")
+        self.usernameLineEdit.setStyleSheet("font: 20pt;")
+
         self.passwordLabel = QtWidgets.QLabel(Dialog)
-        self.passwordLabel.setGeometry(QtCore.QRect(110, 190, 71, 16))
-        self.passwordLabel.setStyleSheet("font: 75 12pt \"Times New Roman\";")
+        self.passwordLabel.setGeometry(QtCore.QRect(672, 400, 100, 26))
+        self.passwordLabel.setStyleSheet("font: 18pt \"Franklin Gothic Heavy\";color: #ffffff;")
         self.passwordLabel.setObjectName("passwordLabel")
+
         self.passwwordLineEdit = QtWidgets.QLineEdit(Dialog)
-        self.passwwordLineEdit.setGeometry(QtCore.QRect(110, 210, 251, 31))
+        self.passwwordLineEdit.setGeometry(QtCore.QRect(595, 430, 251, 31))
         self.passwwordLineEdit.setText("")
+        self.passwwordLineEdit.setEchoMode(QtWidgets.QLineEdit.Password)
         self.passwwordLineEdit.setObjectName("passwwordLineEdit")
-        self.pushButton = QtWidgets.QPushButton(Dialog)
-        self.pushButton.setGeometry(QtCore.QRect(164, 260, 151, 41))
-        self.pushButton.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-                                      "font: 75 16pt \"Times New Roman\";\n")
-        self.pushButton.setObjectName("pushButton")
-        self.pushButton.clicked.connect(self.adminSignin)
+        self.passwwordLineEdit.setAlignment(QtCore.Qt.AlignCenter)
+        self.passwwordLineEdit.setStyleSheet("font: 20pt;")
+
+        self.signinButton = QtWidgets.QPushButton(Dialog)
+        self.signinButton.setGeometry(QtCore.QRect(595, 490, 251, 41))
+        self.signinButton.setStyleSheet("background-color: rgb(255, 255, 255);font: 16pt \"Franklin Gothic Heavy\";\n")
+        self.signinButton.setObjectName("pushButton")
+        self.signinButton.clicked.connect(self.adminSignin)
 
 
 
@@ -64,10 +80,10 @@ class AdminSignin(object):
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Admin Login"))
-        self.titleLabel.setText(_translate("Dialog", "Admin Login"))
-        self.usernameLabel.setText(_translate("Dialog", "Username"))
-        self.passwordLabel.setText(_translate("Dialog", "Password"))
-        self.pushButton.setText(_translate("Dialog", "Sign in"))
+        self.titleLabel.setText(_translate("Dialog", "ADMIN LOGIN"))
+        self.usernameLabel.setText(_translate("Dialog", "USERNAME"))
+        self.passwordLabel.setText(_translate("Dialog", "PASSWORD"))
+        self.signinButton.setText(_translate("Dialog", "SIGN IN"))
 
 
 if __name__ == "__main__":
