@@ -69,7 +69,7 @@ class AdminSignin(object):
         self.signinButton = QtWidgets.QPushButton(Dialog)
         self.signinButton.setGeometry(QtCore.QRect(595, 490, 251, 41))
         self.signinButton.setStyleSheet("background-color: rgb(255, 255, 255);font: 16pt \"Franklin Gothic Heavy\";\n")
-        self.signinButton.setObjectName("pushButton")
+        self.signinButton.setObjectName("signinButton")
         self.signinButton.clicked.connect(self.adminSignin)
 
 

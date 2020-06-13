@@ -69,12 +69,13 @@ class Ui_Predict(object):
                 cnn.fit(trainset, y_train)
                 reslt = cnn.predict(testdata)
                 print("pre=", reslt)
-                self.result.setText(reslt[0])
+
                 query = "insert into dataset values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
                 values = (str(mathmark), str(chinesemark), str(engmark), str(phymark), str(chemark), str(biomark), str(histmark), str(condtmark), str(sprtmark),str(artmark), str(reslt[0]))
                 print(values)
                 cursor.execute(query, values)
                 database.commit()
+                self.showMessageBox("Information", "Predicted Higher Education : \n"+str(reslt[0]))
 
         except Exception as e:
             print("Error=" + e.args[0])
@@ -91,135 +92,120 @@ class Ui_Predict(object):
 
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(852, 501)
-        Dialog.setStyleSheet("background-color: rgb(0, 85, 127);")
+        Dialog.resize(1440, 820)
+
+        self.label = QtWidgets.QLabel(Dialog)
+        self.label.setGeometry(QtCore.QRect(0, 0, 1440, 820))
+        # self.label.setStyleSheet("background-image: url(../Prediction/images/adminBackground.jpg); background-size : auto;")
+        self.label.setStyleSheet(
+            "border-image: url(../Prediction/images/userloginBackground.jpg) 0 0 0 0 stretch stretch;")
+        self.label.setText("")
+        self.label.setObjectName("label")
+
         self.titleLabel = QtWidgets.QLabel(Dialog)
-        self.titleLabel.setGeometry(QtCore.QRect(180, 80, 331, 61))
-        self.titleLabel.setStyleSheet("color: rgb(255, 255, 255);\n"
-                                      "font: 12pt \"Franklin Gothic Heavy\";")
+        self.titleLabel.setGeometry(QtCore.QRect(389, 150, 790, 81))
+        self.titleLabel.setStyleSheet("color: rgb(255, 255, 255); font: 70pt \"Franklin Gothic Heavy\";")
         self.titleLabel.setObjectName("titleLabel")
 
         self.mathLabel = QtWidgets.QLabel(Dialog)
-        self.mathLabel.setGeometry(QtCore.QRect(70, 165, 60, 40))
-        self.mathLabel.setStyleSheet("color: rgb(255, 255, 255);\n"
-                                     "font: 10pt \"Franklin Gothic Heavy\";")
+        self.mathLabel.setGeometry(QtCore.QRect(70+319, 325, 100, 40))
+        self.mathLabel.setStyleSheet("color: rgb(255, 255, 255); font: 14pt \"Franklin Gothic Heavy\";")
         self.mathLabel.setObjectName("mathLabel")
         self.math = QtWidgets.QLineEdit(Dialog)
-        self.math.setGeometry(QtCore.QRect(70, 200, 60, 40))
+        self.math.setGeometry(QtCore.QRect(70+319, 365, 100, 40))
         self.math.setText("")
         self.math.setObjectName("math")
 
         self.chineseLabel = QtWidgets.QLabel(Dialog)
-        self.chineseLabel.setGeometry(QtCore.QRect(140, 165, 60, 40))
-        self.chineseLabel.setStyleSheet("color: rgb(255, 255, 255);\n"
-                                     "font: 10pt \"Franklin Gothic Heavy\";")
+        self.chineseLabel.setGeometry(QtCore.QRect(210+319, 325, 100, 40))
+        self.chineseLabel.setStyleSheet("color: rgb(255, 255, 255); font: 14pt \"Franklin Gothic Heavy\";")
         self.chineseLabel.setObjectName("chineseLabel")
         self.chinese = QtWidgets.QLineEdit(Dialog)
-        self.chinese.setGeometry(QtCore.QRect(140, 200, 60, 40))
+        self.chinese.setGeometry(QtCore.QRect(210+319, 365, 100, 40))
         self.chinese.setText("")
         self.chinese.setObjectName("chinese")
 
         self.engLabel = QtWidgets.QLabel(Dialog)
-        self.engLabel.setGeometry(QtCore.QRect(210, 165, 60, 40))
-        self.engLabel.setStyleSheet("color: rgb(255, 255, 255);\n"
-                                        "font: 10pt \"Franklin Gothic Heavy\";")
+        self.engLabel.setGeometry(QtCore.QRect(350+319, 325, 100, 40))
+        self.engLabel.setStyleSheet("color: rgb(255, 255, 255); font: 14pt \"Franklin Gothic Heavy\";")
         self.engLabel.setObjectName("engLabel")
         self.eng = QtWidgets.QLineEdit(Dialog)
-        self.eng.setGeometry(QtCore.QRect(210, 200, 60, 40))
+        self.eng.setGeometry(QtCore.QRect(350+319, 365, 100, 40))
         self.eng.setText("")
         self.eng.setObjectName("eng")
 
         self.phyLabel = QtWidgets.QLabel(Dialog)
-        self.phyLabel.setGeometry(QtCore.QRect(280, 165, 60, 40))
-        self.phyLabel.setStyleSheet("color: rgb(255, 255, 255);\n"
-                                        "font: 10pt \"Franklin Gothic Heavy\";")
+        self.phyLabel.setGeometry(QtCore.QRect(490+319, 325, 100, 40))
+        self.phyLabel.setStyleSheet("color: rgb(255, 255, 255); font: 10pt \"Franklin Gothic Heavy\";")
         self.phyLabel.setObjectName("phyLabel")
         self.phy = QtWidgets.QLineEdit(Dialog)
-        self.phy.setGeometry(QtCore.QRect(280, 200, 60, 40))
+        self.phy.setGeometry(QtCore.QRect(490+319, 365, 100, 40))
         self.phy.setText("")
         self.phy.setObjectName("phy")
 
         self.cheLabel = QtWidgets.QLabel(Dialog)
-        self.cheLabel.setGeometry(QtCore.QRect(350, 165, 60, 40))
-        self.cheLabel.setStyleSheet("color: rgb(255, 255, 255);\n"
-                                    "font: 10pt \"Franklin Gothic Heavy\";")
+        self.cheLabel.setGeometry(QtCore.QRect(630+319, 325, 100, 40))
+        self.cheLabel.setStyleSheet("color: rgb(255, 255, 255); font: 14pt \"Franklin Gothic Heavy\";")
         self.cheLabel.setObjectName("cheLabel")
         self.che = QtWidgets.QLineEdit(Dialog)
-        self.che.setGeometry(QtCore.QRect(350, 200, 60, 40))
+        self.che.setGeometry(QtCore.QRect(630+319, 365, 100, 40))
         self.che.setText("")
         self.che.setObjectName("che")
 
         self.bioLabel = QtWidgets.QLabel(Dialog)
-        self.bioLabel.setGeometry(QtCore.QRect(420, 165, 60, 40))
-        self.bioLabel.setStyleSheet("color: rgb(255, 255, 255);\n"
-                                    "font: 10pt \"Franklin Gothic Heavy\";")
+        self.bioLabel.setGeometry(QtCore.QRect(70+319, 435, 100, 40))
+        self.bioLabel.setStyleSheet("color: rgb(255, 255, 255); font: 14pt \"Franklin Gothic Heavy\";")
         self.bioLabel.setObjectName("bioLabel")
         self.bio = QtWidgets.QLineEdit(Dialog)
-        self.bio.setGeometry(QtCore.QRect(420, 200, 60, 40))
+        self.bio.setGeometry(QtCore.QRect(70+319, 475, 100, 40))
         self.bio.setText("")
         self.bio.setObjectName("bio")
 
         self.histLabel = QtWidgets.QLabel(Dialog)
-        self.histLabel.setGeometry(QtCore.QRect(490, 165, 60, 40))
-        self.histLabel.setStyleSheet("color: rgb(255, 255, 255);\n"
-                                    "font: 10pt \"Franklin Gothic Heavy\";")
+        self.histLabel.setGeometry(QtCore.QRect(210+319, 435, 100, 40))
+        self.histLabel.setStyleSheet("color: rgb(255, 255, 255); font: 14pt \"Franklin Gothic Heavy\";")
         self.histLabel.setObjectName("histLabel")
         self.hist = QtWidgets.QLineEdit(Dialog)
-        self.hist.setGeometry(QtCore.QRect(490, 200, 60, 40))
+        self.hist.setGeometry(QtCore.QRect(210+319, 475, 100, 40))
         self.hist.setText("")
         self.hist.setObjectName("hist")
 
         self.condtLabel = QtWidgets.QLabel(Dialog)
-        self.condtLabel.setGeometry(QtCore.QRect(560, 165, 60, 40))
-        self.condtLabel.setStyleSheet("color: rgb(255, 255, 255);\n"
-                                    "font: 10pt \"Franklin Gothic Heavy\";")
+        self.condtLabel.setGeometry(QtCore.QRect(350+319, 435, 100, 40))
+        self.condtLabel.setStyleSheet("color: rgb(255, 255, 255); font: 14pt \"Franklin Gothic Heavy\";")
         self.condtLabel.setObjectName("condtLabel")
         self.condt = QtWidgets.QLineEdit(Dialog)
-        self.condt.setGeometry(QtCore.QRect(560, 200, 60, 40))
+        self.condt.setGeometry(QtCore.QRect(350+319, 475, 100, 40))
         self.condt.setText("")
         self.condt.setObjectName("condt")
 
         self.sprtLabel = QtWidgets.QLabel(Dialog)
-        self.sprtLabel.setGeometry(QtCore.QRect(630, 165, 60, 40))
-        self.sprtLabel.setStyleSheet("color: rgb(255, 255, 255);\n"
-                                    "font: 10pt \"Franklin Gothic Heavy\";")
+        self.sprtLabel.setGeometry(QtCore.QRect(490+319, 435, 100, 40))
+        self.sprtLabel.setStyleSheet("color: rgb(255, 255, 255); font: 14pt \"Franklin Gothic Heavy\";")
         self.sprtLabel.setObjectName("sprtLabel")
         self.sprt = QtWidgets.QLineEdit(Dialog)
-        self.sprt.setGeometry(QtCore.QRect(630, 200, 60, 40))
+        self.sprt.setGeometry(QtCore.QRect(490+319, 475, 100, 40))
         self.sprt.setText("")
         self.sprt.setObjectName("sprt")
 
         self.artLabel = QtWidgets.QLabel(Dialog)
-        self.artLabel.setGeometry(QtCore.QRect(700, 165, 60, 40))
-        self.artLabel.setStyleSheet("color: rgb(255, 255, 255);\n"
-                                    "font: 10pt \"Franklin Gothic Heavy\";")
+        self.artLabel.setGeometry(QtCore.QRect(630+319, 435, 100, 40))
+        self.artLabel.setStyleSheet("color: rgb(255, 255, 255); font: 14pt \"Franklin Gothic Heavy\";")
         self.artLabel.setObjectName("artLabel")
         self.art = QtWidgets.QLineEdit(Dialog)
-        self.art.setGeometry(QtCore.QRect(700, 200, 60, 40))
+        self.art.setGeometry(QtCore.QRect(630+319, 475, 100, 40))
         self.art.setText("")
         self.art.setObjectName("art")
 
         self.predictBtn = QtWidgets.QPushButton(Dialog)
-        self.predictBtn.setGeometry(QtCore.QRect(180, 280, 181, 41))
-        self.predictBtn.setStyleSheet("background-color: rgb(170, 85, 0);\n"
-                                      "color: rgb(255, 255, 255);\n"
-                                      "font: 75 12pt \"Verdana\";")
+        self.predictBtn.setGeometry(QtCore.QRect(630, 575, 181, 41))
+        self.predictBtn.setStyleSheet("background-color: rgb(170, 85, 0); color: rgb(255, 255, 255); font: 75 12pt \"Verdana\";")
         self.predictBtn.setObjectName("predictBtn")
         self.predictBtn.clicked.connect(self.predict)
 
 
 
-        self.resultLabel = QtWidgets.QLabel(Dialog)
-        self.resultLabel.setGeometry(QtCore.QRect(90, 390, 141, 31))
-        self.resultLabel.setStyleSheet("color: rgb(255, 255, 255);\n"
-                                       "font: 12pt \"Franklin Gothic Heavy\";")
-        self.resultLabel.setObjectName("resultLabel")
-        self.result = QtWidgets.QLabel(Dialog)
-        self.result.setGeometry(QtCore.QRect(230, 380, 351, 51))
-        self.result.setStyleSheet("color: rgb(255, 255, 255);\n"
-                                  "font: 12pt \"Franklin Gothic Heavy\";")
-        self.result.setText("")
-        self.result.setObjectName("result")
+
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -227,9 +213,9 @@ class Ui_Predict(object):
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Prediction"))
-        self.titleLabel.setText(_translate("Dialog", "Prediction Universities Degree"))
+        self.titleLabel.setText(_translate("Dialog", "ENTER YOUR MARKS"))
         self.predictBtn.setText(_translate("Dialog", "Predict"))
-        self.resultLabel.setText(_translate("Dialog", "Result       :"))
+
 
         self.mathLabel.setText(_translate("Dialog", "Mathematics"))
         self.chineseLabel.setText(_translate("Dialog", "Chinese"))
