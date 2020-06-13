@@ -16,12 +16,14 @@ class ViewDataSet(object):
 
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(582, 240)
+        Dialog.resize(1250, 240)
+
         self.tableWidget = QtWidgets.QTableWidget(Dialog)
-        self.tableWidget.setGeometry(QtCore.QRect(0, 0, 581, 241))
+        self.tableWidget.setGeometry(QtCore.QRect(0, 0, 1250, 240))
         self.tableWidget.setRowCount(5)
         self.tableWidget.setColumnCount(11)
         self.tableWidget.setObjectName("tableWidget")
+
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
@@ -48,6 +50,7 @@ class ViewDataSet(object):
 
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(10, item)
+
 
 
 

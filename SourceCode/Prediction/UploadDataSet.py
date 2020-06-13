@@ -56,31 +56,40 @@ class UploadDataSet(object):
             print(tb.tb_lineno)
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(544, 388)
-        Dialog.setStyleSheet("background-color: rgb(255, 170, 127);")
+        Dialog.resize(650, 496)
+
+        self.label = QtWidgets.QLabel(Dialog)
+        self.label.setGeometry(QtCore.QRect(0, 0, 650, 496))
+        # self.label.setStyleSheet("background-image: url(../Prediction/images/adminhomeBackground.jpg);")
+        self.label.setStyleSheet(
+            "border-image: url(../Prediction/images/adminhomeBackground.jpg) 0 0 0 0 stretch stretch;")
+        self.label.setText("")
+        self.label.setObjectName("label")
+
         self.titleLabel = QtWidgets.QLabel(Dialog)
-        self.titleLabel.setGeometry(QtCore.QRect(200, 70, 141, 20))
-        self.titleLabel.setStyleSheet("font: 75 14pt \"Times New Roman\";")
+        self.titleLabel.setGeometry(QtCore.QRect(174, 70, 790, 81))
+        self.titleLabel.setStyleSheet("color: rgb(255, 255, 255); font: 40pt \"Franklin Gothic Heavy\";")
         self.titleLabel.setObjectName("titleLabel")
+
         self.selectFileLabel = QtWidgets.QLabel(Dialog)
-        self.selectFileLabel.setGeometry(QtCore.QRect(110, 130, 71, 16))
-        self.selectFileLabel.setStyleSheet("font: 75 12pt \"Times New Roman\";")
+        self.selectFileLabel.setGeometry(QtCore.QRect(110, 170, 100,16))
+        self.selectFileLabel.setStyleSheet("font: 16pt \"Franklin Gothic Heavy\"; color:#ffffff;")
         self.selectFileLabel.setObjectName("selectFileLabel")
+
         self.fileName = QtWidgets.QLineEdit(Dialog)
-        self.fileName.setGeometry(QtCore.QRect(110, 160, 251, 31))
+        self.fileName.setGeometry(QtCore.QRect(110, 200, 251, 41))
         self.fileName.setText("")
         self.fileName.setObjectName("fileName")
+
         self.browseBtn = QtWidgets.QPushButton(Dialog)
-        self.browseBtn.setGeometry(QtCore.QRect(380, 152, 151, 41))
-        self.browseBtn.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-                                     "font: 75 16pt \"Times New Roman\";\n")
+        self.browseBtn.setGeometry(QtCore.QRect(380, 200, 151, 41))
+        self.browseBtn.setStyleSheet("background-color: rgb(255, 255, 255); font: 16pt \"Times New Roman\";")
         self.browseBtn.setObjectName("browseBtn")
         self.browseBtn.clicked.connect(self.browse_file)
 
         self.storeBtn = QtWidgets.QPushButton(Dialog)
-        self.storeBtn.setGeometry(QtCore.QRect(190, 210, 151, 41))
-        self.storeBtn.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-                                     "font: 75 16pt \"Times New Roman\";\n")
+        self.storeBtn.setGeometry(QtCore.QRect(250, 280, 151, 41))
+        self.storeBtn.setStyleSheet("background-color: rgb(255, 255, 255); font: 16pt \"Times New Roman\";")
         self.storeBtn.setObjectName("browseBtn")
         self.storeBtn.clicked.connect(self.saveToDB)
 
